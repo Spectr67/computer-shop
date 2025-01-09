@@ -43,24 +43,3 @@ function compareWords(a, b) {
 }
 
 const removeClones = arr => Array.from(new Set(arr))
-
-// const products = [
-//   {
-//     id: 13,
-//     price: 458,
-//     caption: 'Геймерский ПК Solaris-I',
-//     description: 'Для геймеров',
-//     category: 'Computers',
-//     attributes: {
-//       'Тип ОЗУ': 'DDR4',
-//       'Тип накопителя': 'SSD',
-//       'Процессор': 'AMD',
-//       'Количество ядер': '4',
-//       'Объем накопителя': '240Gb',
-//     },
-
-//   },
-// ]
-// const query = 'ПК AMD DDR4'
-// const SearchedProducts = findProductsByQuery(query)
-// console.log(SearchedProducts)
