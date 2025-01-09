@@ -1,5 +1,12 @@
 function generateProductCard(product) {
-  const { id, imgSrc, title, price, attributes } = product
+  const url = 'https://web-app.click/pc-shop/photos/products/computers/'
+  const {
+    id,
+    photos: [photo],
+    title,
+    price,
+    attributes,
+  } = product
 
   const elDivProduct = document.createElement('div')
   const elDivWrapA = document.createElement('div')
@@ -22,7 +29,7 @@ function generateProductCard(product) {
 
   elLink.href = `?type=product_card&id=${id}`
   elLink.classList.add('a-link')
-  elImg.src = imgSrc
+  elImg.src = url + photo
   elImg.alt = title
   elTitle.textContent = product.caption
   elPrice.innerHTML = `<b>${price} грн</b>`
