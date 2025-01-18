@@ -1,3 +1,5 @@
+function renderProductsBySorting(typeofSorting) {}
+
 function renderProducts(products) {
   const elDivContainerProducts = document.querySelector('.container-products')
   elDivContainerProducts.innerHTML = ''
