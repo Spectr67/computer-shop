@@ -6,6 +6,7 @@ const controller = {
 
   handleSearchQuery(query) {
     model.query = query
-    renderProducts(model.searchProducts())
+    const filteredProducts = model.searchProducts()
+    renderProducts(filteredProducts)
   },
 }

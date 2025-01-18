@@ -1,8 +1,8 @@
 let itemsPerPage = 10
-let currentPage = 1
+let currentPage = 0
 
 function updateProducts() {
-  const start = (currentPage - 1) * itemsPerPage
+  const start = currentPage * itemsPerPage
   const end = start + itemsPerPage
   const pageProducts = products.slice(start, end)
 
