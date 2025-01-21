@@ -1,4 +1,4 @@
-const products = [
+module.exports = [
   {
     id: 13,
     price: 458,

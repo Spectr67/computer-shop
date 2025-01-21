@@ -10,19 +10,15 @@ const model = {
   },
 
   sortProducts(sortingType) {
-    console.log(sortingType)
-    console.log('sortingType')
     sorter.sortingType = sortingType
-    console.log(sorter.sortingType)
-    console.log('sorter.sortingType')
     this.products = sorter.sort(this.products)
     return this.products
   },
 
   paginationProducts(page, itemsPerPage) {
     paginator.currentPage = page
-    paginator.itemsPerPage = itemsPerPage
-    this.products = paginator.updateProducts(page, itemsPerPage)
+    paginator.productsPerPage = itemsPerPage
+    this.products = paginator.paginate(page, itemsPerPage)
     return this.products
   },
 
@@ -38,8 +34,8 @@ const model = {
     }
     if ((page, itemsPerPage)) {
       paginator.currentPage = page
-      paginator.itemsPerPage = itemsPerPage
-      result = paginator.updateProducts(page, itemsPerPage)
+      paginator.productsPerPage = itemsPerPage
+      result = paginator.paginate(page, itemsPerPage)
     }
 
     return result

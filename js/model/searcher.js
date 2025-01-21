@@ -15,10 +15,8 @@ const searcher = {
   },
 
   queryToArray(query) {
-    return query
-      .trim()
-      .split(' ')
-      .filter(q => q !== '')
+    return query.trim().split(' ')
+    // .filter(q => q !== '')
   },
 
   compareWords(a, b) {
@@ -49,6 +47,7 @@ const searcher = {
     )
   },
 }
+
 module.exports = searcher
 // const products = [
 //   {
