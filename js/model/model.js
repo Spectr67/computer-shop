@@ -8,6 +8,46 @@ const model = {
     if (this.query === '') return this.products
     return searcher.search(this.query, this.products)
   },
+
+  sortProducts(sortingType) {
+    sorter.sortingType = sortingType 
+    this.products = sorter.sort(this.products) 
+    return this.products
+  },
+
+  paginationProducts(page, itemsPerPage) {
+    paginator.currentPage = page
+    paginator.itemsPerPage = itemsPerPage
+    this.products = paginator.updateProducts(page, itemsPerPage)
+    return this.products
+  },
+
+  finalArrayProducts(query, page, itemsPerPage, sortingType){
+    let result = this.products
+
+    if (query === '') return this.products
+     searcher.search(query, this.products)
+
+    if (sortingType) {
+      sorter.sortingType = sortingType 
+      result = sorter.sort(this.products) 
+    }
+    if (page,itemsPerPage){
+      paginator.currentPage = page
+      paginator.itemsPerPage = itemsPerPage
+      result = paginator.updateProducts(page, itemsPerPage)
+    }
+    
+    return result
+  },
+ },
+
+
+
+
+
+
+
 }
 
 // push pop shift unshift sort reverse splice

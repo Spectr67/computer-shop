@@ -49,7 +49,7 @@ const searcher = {
     )
   },
 }
-
+module.exports = searcher
 // const products = [
 //   {
 //     id: 13,

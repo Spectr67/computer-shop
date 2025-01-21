@@ -1,26 +1,13 @@
-// const elSelectPriceASC = document.querySelector('.sort > option:nth-child(1)');
-// const elSelectPriceDESC = document.querySelector('.sort > option:nth-child(2)');
-// const elSelectCaptionASC = document.querySelector('.sort > option:nth-child(3)');
-// const elSelectCaptionDESC = document.querySelector('.sort > option:nth-child(4)');
-// const seSelect = document.querySelector('.sort')
-// const value = seSelect.value
-// console.log(value)
+const elSelectSort = document.querySelector('.sort')
+elSelectSort.onchange = onSelectSorting
 
-// // elSelectCaptionASC.onselect = onSelectSortCaption
-// // elSelectCaptionDESC.onselect = onSelectSortCaption
-// // elSelectPriceASC.onselect =
-// // elSelectPriceDESC.onselect =
-
-// // function onSelectSortCaption() {
-// //   handle
-// // }
-
-// // function onSelectSortPrice(){
-
-// // }
+function onSelectSorting() {
+  const sortValue = elSelectSort.value
+  console.log(sortValue)
+  controller.handleSelectSorting(sortValue)
+}
 
 function onLoadPage() {
-  // body
   console.log('onLoadPage')
   controller.handleLoadPage()
 }
