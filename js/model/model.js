@@ -10,8 +10,12 @@ const model = {
   },
 
   sortProducts(sortingType) {
-    sorter.sortingType = sortingType 
-    this.products = sorter.sort(this.products) 
+    console.log(sortingType)
+    console.log('sortingType')
+    sorter.sortingType = sortingType
+    console.log(sorter.sortingType)
+    console.log('sorter.sortingType')
+    this.products = sorter.sort(this.products)
     return this.products
   },
 
@@ -22,32 +26,24 @@ const model = {
     return this.products
   },
 
-  finalArrayProducts(query, page, itemsPerPage, sortingType){
+  finalArrayProducts(query, page, itemsPerPage, sortingType) {
     let result = this.products
 
     if (query === '') return this.products
-     searcher.search(query, this.products)
+    searcher.search(query, this.products)
 
     if (sortingType) {
-      sorter.sortingType = sortingType 
-      result = sorter.sort(this.products) 
+      sorter.sortingType = sortingType
+      result = sorter.sort(this.products)
     }
-    if (page,itemsPerPage){
+    if ((page, itemsPerPage)) {
       paginator.currentPage = page
       paginator.itemsPerPage = itemsPerPage
       result = paginator.updateProducts(page, itemsPerPage)
     }
-    
+
     return result
   },
- },
-
-
-
-
-
-
-
 }
 
 // push pop shift unshift sort reverse splice

@@ -8,7 +8,9 @@ const api = {
     return products
   },
 
-  // async getProducts() {
-
-  // }
+  async getProducts() {
+    const products = await this.fetchProducts()
+    console.log(products)
+    return products
+  },
 }

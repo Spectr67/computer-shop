@@ -10,11 +10,9 @@ const controller = {
     renderProducts(filteredProducts)
   },
   handleSelectSorting(sortValue) {
-    console.log(typeof sortValue)
+    console.log
     sorter.sortingType = sortValue
-    console.log(sorter.sortingType)
-    console.log('cont')
-    const sortedPrducts = model.sortProducts()
+    const sortedPrducts = model.sortProducts(sortValue)
     renderProducts(sortedPrducts)
   },
 }
