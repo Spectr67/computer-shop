@@ -24,4 +24,11 @@ const controller = {
     const paginated = model.computedProducts(model.products)
     renderProducts(paginated)
   },
+  handleSetPriceMin(minPrice, maxPrice) {
+    pricer.minPrice = minPrice
+    pricer.maxPrice = maxPrice
+    const priced = model.computedProducts(model.products)
+    console.log(priced)
+    renderProducts(priced)
+  },
 }

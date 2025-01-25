@@ -1,6 +1,6 @@
 const pricer = {
-  minPrice: 10,
-  maxPrice: 1500,
+  minPrice: 0,
+  maxPrice: 0,
 
   setMinPrice(min) {
     this.minPrice = min

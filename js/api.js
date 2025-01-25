@@ -10,7 +10,6 @@ const api = {
 
   async getProducts() {
     const products = await this.fetchProducts()
-    console.log(products)
     return products
   },
 }
