@@ -7,8 +7,8 @@
 const model = {
   products: [],
 
-  computedProducts(products) {
-    const searched = searcher.search(products)
+  computedProducts() {
+    const searched = searcher.search(this.products)
     const sorted = sorter.sort(searched)
     const priced = pricer.price(sorted)
     const paginated = paginator.paginate(priced)

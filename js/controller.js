@@ -7,28 +7,36 @@ const controller = {
     renderProducts(model.products)
   },
 
-  handleSearchQuery(query) {
+  handleSetSearchQuery(query) {
     searcher.query = query
-    const searched = model.computedProducts(model.products)
+    const searched = model.computedProducts()
     renderProducts(searched)
   },
 
-  handleProductSorting(sortingType) {
+  handleSetProductSorting(sortingType) {
     sorter.sortingType = sortingType
-    const sorted = model.computedProducts(model.products)
+    const sorted = model.computedProducts()
     renderProducts(sorted)
   },
 
-  handlePaginate(productsPerPage) {
+  handleSetProductsOnPage(productsPerPage) {
     paginator.productsPerPage = productsPerPage
-    const paginated = model.computedProducts(model.products)
+    const paginated = model.computedProducts()
     renderProducts(paginated)
   },
-  handleSetPriceMin(minPrice, maxPrice) {
+
+  handleSetCurrentPage(page) {
+    //
+  },
+
+  handleSetPriceMin(minPrice) {
     pricer.minPrice = minPrice
-    pricer.maxPrice = maxPrice
-    const priced = model.computedProducts(model.products)
-    console.log(priced)
+    const priced = model.computedProducts()
     renderProducts(priced)
+  },
+
+  handleSetPriceMax(maxPrice) {
+    pricer.maxPrice = maxPrice
+    renderProducts(model.computedProducts())
   },
 }
