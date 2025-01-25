@@ -1,18 +1,27 @@
+// const { sortingType } = require("./model/sorter")
+
 const controller = {
-  handleLoadPage() {
-    // api call
+  async handleLoadPage() {
+    const products = await api.getProducts()
+    model.products = products
     renderProducts(model.products)
   },
 
   handleSearchQuery(query) {
     searcher.query = query
-    const filteredProducts = model.searchProducts()
-    renderProducts(filteredProducts)
+    const searched = model.computedProducts(model.products)
+    renderProducts(searched)
   },
-  handleSelectSorting(sortValue) {
-    console.log
-    sorter.sortingType = sortValue
-    const sortedPrducts = model.sortProducts(sortValue)
-    renderProducts(sortedPrducts)
+
+  handleProductSorting(sortingType) {
+    sorter.sortingType = sortingType
+    const sorted = model.computedProducts(model.products)
+    renderProducts(sorted)
+  },
+
+  handlePaginate(productsPerPage) {
+    paginator.productsPerPage = productsPerPage
+    const paginated = model.computedProducts(model.products)
+    renderProducts(paginated)
   },
 }
