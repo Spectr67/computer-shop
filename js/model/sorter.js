@@ -19,5 +19,5 @@ const sorter = {
   },
 }
 
-module.exports = sorter
+// module.exports = sorter
 // console.log(sorter.sort([{ price: 3 }, { price: 1 }, { price: 2 }]))

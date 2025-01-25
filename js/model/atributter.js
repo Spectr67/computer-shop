@@ -1,7 +1,7 @@
 const attributer = {
   attribute: '',
   attributeValue: '',
-
+  settedAtributes: [],
   attributering(products) {
     return products.filter(
       product =>

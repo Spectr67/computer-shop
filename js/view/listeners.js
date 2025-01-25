@@ -1,10 +1,9 @@
 const elSelectSort = document.querySelector('.sort')
-elSelectSort.onchange = onSelectSorting
+elSelectSort.onchange = onChangeSelectSortingType
 
-function onSelectSorting() {
-  const sortValue = elSelectSort.value
-  console.log(sortValue)
-  controller.handleSelectSorting(sortValue)
+function onChangeSelectSortingType(e) {
+  const sortingType = e.target.value
+  controller.handleProductSorting(sortingType)
 }
 
 function onLoadPage() {

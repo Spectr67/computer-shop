@@ -1,20 +1,37 @@
-const products = require('../../products')
-const searcher = require('./searcher')
-const sorter = require('./sorter')
+// const products = require('../../products')
+// const searcher = require('./searcher')
+// const sorter = require('./sorter')
+// const pricer = require('./pricer')
+// const paginator = require('./paginator')
 
-function computedProducts(products) {
-  const searched = searcher.search(products)
-  const sorted = sorter.sort(searched)
-  return sorted
+const model = {
+  products: [],
+
+  computedProducts(products) {
+    const searched = searcher.search(products)
+    const sorted = sorter.sort(searched)
+    const priced = pricer.price(sorted)
+    const paginated = paginator.paginate(priced)
+    return paginated
+  },
 }
 
+// sorter.sortingType = 'byPriceDESC'
+// pricer.minPrice = 300
+// pricer.maxPrice = 900
 // let q = searcher.queryToArray('')
 
 // console.log(q)
 
-// const result = computedProducts(products)
+// let result = computedProducts(products)
 
-// console.log(result.map(r => r.caption))
+// console.log(result.map(r => r.price))
+// paginator.currentPage = 1
+// result = computedProducts(products)
+// console.log(result.map(r => r.price))
+// paginator.currentPage = paginator.totalPages - 1
+// result = computedProducts(products)
+// console.log(result.map(r => r.price))
 
 // let d = ('f', 'g', 'h')
 

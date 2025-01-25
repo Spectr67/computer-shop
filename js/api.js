@@ -5,7 +5,7 @@ const api = {
   async fetchProducts() {
     const response = await fetch(URL_PRODUCTS)
     const products = await response.json()
-    return products
+    return products.payload
   },
 
   async getProducts() {

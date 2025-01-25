@@ -17,7 +17,7 @@ const pricer = {
     )
   },
 }
-
+// module.exports = pricer
 // const pricess = pricer.price([{
 //   id: 13,
 //   price: 458,

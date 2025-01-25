@@ -1,4 +1,4 @@
-module.exports = [
+let fssfg = [
   {
     id: 13,
     price: 458,
