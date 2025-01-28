@@ -94,3 +94,15 @@ function generatePagination(totalPages, currentPage) {
   }
   return elDivPaginationContainer
 }
+
+function generatePaginationPageA(pageNumber, isActive) {
+  const elPageLink = document.createElement('a')
+  elPageLink.onclick = onclickSetCurrentPage // !! camelCase !!
+  elPageLink.href = '#'
+  elPageLink.textContent = pageNumber
+  elPageLink.classList.add('page')
+  if (isActive) {
+    elPageLink.classList.add('active')
+  }
+  return elPageLink
+}
