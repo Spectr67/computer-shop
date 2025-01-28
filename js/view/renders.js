@@ -7,3 +7,9 @@ function renderProducts(products) {
     elDivContainerProducts.appendChild(elDivProduct)
   })
 }
+function renderCurrentPage(totalPages, currentPage) {
+  const elDivPaginaion = document.querySelector('.pagination')
+  const elDivPaginationPage = generatePagination(totalPages, currentPage)
+  elDivPaginaion.innerHTML = ''
+  elDivPaginaion.appendChild(elDivPaginationPage)
+}

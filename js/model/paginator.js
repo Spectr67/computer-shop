@@ -1,5 +1,5 @@
 const paginator = {
-  productsPerPage: 5,
+  productsPerPage: 10,
   currentPage: 0,
   totalPages: 0,
 

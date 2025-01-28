@@ -8,13 +8,20 @@ elSelectPaginator.onchange = onChangeSelectProductsOnPage
 elInputPriceFrom.oninput = onInputSetPriceMin
 elInputPriceTo.oninput = onInputSetPriceMax
 
+function onclickSetCurrentPage(e) {
+  const currentPage = e.target.value
+  controller.handleSetCurrentPage(currentPage)
+}
+
 function onInputSetPriceMin(e) {
   const minPrice = e.target.value
+  console.log(minPrice)
   controller.handleSetPriceMin(minPrice)
 }
 
 function onInputSetPriceMax(e) {
   const maxPrice = e.target.value
+  console.log(maxPrice)
   controller.handleSetPriceMax(maxPrice)
 }
 
