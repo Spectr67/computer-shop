@@ -13,3 +13,13 @@ function renderCurrentPage(totalPages, currentPage) {
   elDivPaginaion.innerHTML = ''
   elDivPaginaion.appendChild(elDivPaginationPage)
 }
+
+function renderPagination(totalPages, currentPage) {
+  const elDivPaginaion = document.querySelector('.pagination')
+  elDivPaginaion.innerHTML = ''
+  for (let i = 0; i < totalPages; i++) {
+    const isActive = i === currentPage
+    const elPageLink = generatePaginationPageA(i, isActive)
+    elDivPaginaion.appendChild(elPageLink)
+  }
+}
