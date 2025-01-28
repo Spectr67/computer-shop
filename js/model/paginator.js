@@ -13,8 +13,3 @@ const paginator = {
     return products.slice(start, end)
   },
 }
-
-// module.exports = paginator
-// const page = paginator.paginate(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'])
-// paginator
-// page

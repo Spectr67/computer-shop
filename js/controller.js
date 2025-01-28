@@ -1,10 +1,8 @@
-// const { sortingType } = require("./model/sorter")
-
 const controller = {
   async handleLoadPage() {
     const products = await api.getProducts()
     model.products = products
-    renderProducts(model.products)
+    renderProducts(model.convertPricesToUAH(products))
   },
 
   handleSetSearchQuery(query) {
