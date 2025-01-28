@@ -21,12 +21,12 @@ const controller = {
   },
 
   handleSetProductsOnPage(productsPerPage) {
-    paginator.productsPerPage = productsPerPage
+    paginator.productsPerPage = +productsPerPage
     renderProducts(model.computedProducts())
   },
 
   handleSetCurrentPage(page) {
-    paginator.currentPage = page
+    paginator.currentPage = +page
     renderCurrentPage(paginator.totalPages, paginator.currentPage)
     renderProducts(model.computedProducts())
   },
