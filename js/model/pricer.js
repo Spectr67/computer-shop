@@ -9,11 +9,11 @@ const pricer = {
     )
   },
 
-  getMaxProductPrice(products) {
-    return Math.max(...products.map(product => product.price))
-  },
+  // getMaxProductPrice(products) {
+  //   return Math.max(...products.map(product => product.price))
+  // },
 
-  getMinProductPrice(products) {
-    return Math.min(...products.map(product => product.price))
-  },
+  // getMinProductPrice(products) {
+  //   return Math.min(...products.map(product => product.price))
+  // },
 }

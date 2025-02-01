@@ -9,7 +9,7 @@ elInputPriceFrom.oninput = onInputSetPriceMin
 elInputPriceTo.oninput = onInputSetPriceMax
 
 function onclickSetCurrentPage(e) {
-  const currentPage = e.target.value
+  const currentPage = e.target.textContent
   controller.handleSetCurrentPage(currentPage)
 }
 

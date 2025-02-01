@@ -2,11 +2,10 @@ const model = {
   products: [],
   exchangeRate: 42,
 
-  convertPricesToUAH(products) {
-    products.forEach(product => {
+  convertPricesToUAH() {
+    this.products.forEach(product => {
       product.price *= this.exchangeRate
     })
-    return products
   },
 
   computedProducts() {
