@@ -77,23 +77,23 @@ function generateProductCard(product) {
   return elDivProduct
 }
 
-function generatePagination(totalPages, currentPage) {
-  const elDivPaginationContainer = document.createElement('div')
-  elDivPaginationContainer.classList.add('pagination')
-  for (let i = 0; i < totalPages; i++) {
-    const elPageLink = document.createElement('a')
-    elPageLink.href = '#'
-    elPageLink.className = 'page'
-    elPageLink.textContent = i
+// function generatePagination(totalPages, currentPage) {
+//   const elDivPaginationContainer = document.createElement('div')
+//   elDivPaginationContainer.classList.add('pagination')
+//   for (let i = 0; i < totalPages; i++) {
+//     const elPageLink = document.createElement('a')
+//     elPageLink.href = '#'
+//     elPageLink.className = 'page'
+//     elPageLink.textContent = i
 
-    elPageLink.onclick = onclickSetCurrentPage
-    if (i === currentPage) {
-      elPageLink.classList.add('active')
-    }
-    elDivPaginationContainer.appendChild(elPageLink)
-  }
-  return elDivPaginationContainer
-}
+//     elPageLink.onclick = onclickSetCurrentPage
+//     if (i === currentPage) {
+//       elPageLink.classList.add('active')
+//     }
+//     elDivPaginationContainer.appendChild(elPageLink)
+//   }
+//   return elDivPaginationContainer
+// }
 
 function generatePaginationPageA(pageNumber, isActive) {
   const elPageLink = document.createElement('a')

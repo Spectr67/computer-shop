@@ -4,7 +4,7 @@ const controller = {
     model.products = products
     paginator.currentPage = 1
     renderProducts(model.convertPricesToUAH(products))
-    renderCurrentPage(
+    renderPagination(
       paginator.getTotalPages(model.products),
       paginator.currentPage
     )
@@ -30,7 +30,7 @@ const controller = {
 
   handleSetCurrentPage(page) {
     paginator.currentPage = +page
-    renderCurrentPage(paginator.totalPages, paginator.currentPage)
+    renderPagination(paginator.totalPages, paginator.currentPage)
     renderProducts(model.computedProducts())
   },
 
