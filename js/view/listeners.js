@@ -15,13 +15,11 @@ function onclickSetCurrentPage(e) {
 
 function onInputSetPriceMin(e) {
   const minPrice = e.target.value
-  console.log(minPrice)
   controller.handleSetPriceMin(minPrice)
 }
 
 function onInputSetPriceMax(e) {
   const maxPrice = e.target.value
-  console.log(maxPrice)
   controller.handleSetPriceMax(maxPrice)
 }
 

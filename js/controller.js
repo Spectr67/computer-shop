@@ -8,6 +8,9 @@ const controller = {
       paginator.getTotalPages(model.products),
       paginator.currentPage
     )
+    const minPrice = pricer.getMinProductPrice(products)
+    const maxPrice = pricer.getMaxProductPrice(products)
+    renderMinAndMaxPriceInputs(minPrice, maxPrice)
   },
 
   handleSetSearchQuery(query) {
@@ -32,7 +35,6 @@ const controller = {
   },
 
   handleSetPriceMin(minPrice) {
-    console.log(typeof minPrice)
     pricer.minPrice = +minPrice
     renderProducts(model.computedProducts())
   },

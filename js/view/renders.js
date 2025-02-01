@@ -23,3 +23,9 @@ function renderPagination(totalPages, currentPage) {
     elDivPaginaion.appendChild(elPageLink)
   }
 }
+function renderMinAndMaxPriceInputs(minPrice, maxPrice) {
+  const elInputPriceFrom = document.querySelector('#price_from')
+  const elInputPriceTo = document.querySelector('#price_to')
+  elInputPriceFrom.value = minPrice
+  elInputPriceTo.value = maxPrice
+}
