@@ -25,6 +25,7 @@ const controller = {
 
   handleSetProductsOnPage(productsPerPage) {
     paginator.productsPerPage = +productsPerPage
+    paginator.currentPage = +0
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
