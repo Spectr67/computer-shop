@@ -1,3 +1,45 @@
+function generateAttribute(attrName, attrValues) {
+  const elDivWrapFilter = document.querySelector('.wrap-filter')
+  elDivWrapFilter.innerHTML = ''
+
+  const elDivWrapProps = document.createElement('div')
+  elDivWrapProps.classList.add('wrap-props')
+
+  elDivWrapProps.appendChild(generateAttrName(attrName))
+
+  for (const attrValue of attrValues) {
+    elDivWrapProps.appendChild(generateAttrValue(attrName, attrValue))
+  }
+
+  return elDivWrapProps
+}
+
+function generateAttrName(attrName) {
+  const elH3AttrName = document.createElement('h3')
+  elH3AttrName.textContent = attrName
+  return elH3AttrName
+}
+
+function generateAttrValue(attrName, attrValue) {
+  const elDivWrapCheckbox = document.createElement('div')
+  const elInput = document.createElement('input')
+  const elLabel = document.createElement('label')
+
+  elDivWrapCheckbox.classList.add('wrap-checkbox')
+  elInput.type = 'checkbox'
+  elInput.name = attrName
+  elInput.value = attrValue
+  elInput.id = `${attrName}-${attrValue}`
+
+  elLabel.htmlFor = elInput.id
+  elLabel.textContent = attrValue
+
+  elDivWrapCheckbox.appendChild(elInput)
+  elDivWrapCheckbox.appendChild(elLabel)
+
+  return elDivWrapCheckbox
+}
+
 function generateProductCard(product) {
   const url = 'https://web-app.click/pc-shop/photos/products/computers/'
   const {
@@ -76,24 +118,6 @@ function generateProductCard(product) {
 
   return elDivProduct
 }
-
-// function generatePagination(totalPages, currentPage) {
-//   const elDivPaginationContainer = document.createElement('div')
-//   elDivPaginationContainer.classList.add('pagination')
-//   for (let i = 0; i < totalPages; i++) {
-//     const elPageLink = document.createElement('a')
-//     elPageLink.href = '#'
-//     elPageLink.className = 'page'
-//     elPageLink.textContent = i
-
-//     elPageLink.onclick = onclickSetCurrentPage
-//     if (i === currentPage) {
-//       elPageLink.classList.add('active')
-//     }
-//     elDivPaginationContainer.appendChild(elPageLink)
-//   }
-//   return elDivPaginationContainer
-// }
 
 function generatePaginationPageA(pageNumber, isActive) {
   const elPageLink = document.createElement('a')
