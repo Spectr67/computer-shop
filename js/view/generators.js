@@ -1,6 +1,5 @@
 function generateAttribute(attrName, attrValues) {
-  const elDivWrapFilter = document.querySelector('.wrap-filter')
-  elDivWrapFilter.innerHTML = ''
+  // elDivWrapFilter.innerHTML = ''
 
   const elDivWrapProps = document.createElement('div')
   elDivWrapProps.classList.add('wrap-props')

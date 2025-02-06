@@ -1,3 +1,19 @@
+const attributes = {
+  Бренд: ['Мерседес', 'Ауди', 'БМВ'],
+  Кузов: ['Седан', 'Купе', 'Хечбек'],
+  Цвет: ['Белый', 'Черный', 'Красный'],
+  Колёса: ['4шт', '6шт', '2шт', '3шт'],
+}
+
+function renderAttributes(attributes) {
+  const elDivWrapFilter = document.querySelector('.wrap-filter')
+  elDivWrapFilter.innerHTML = ''
+  for (const key in attributes) {
+    const elAttribute = generateAttribute(key, attributes[key])
+    elDivWrapFilter.appendChild(elAttribute)
+  }
+}
+
 function renderProducts(products) {
   const elDivContainerProducts = document.querySelector('.container-products')
   elDivContainerProducts.innerHTML = ''
@@ -6,12 +22,6 @@ function renderProducts(products) {
     elDivContainerProducts.appendChild(elDivProduct)
   })
 }
-// function renderCurrentPage(totalPages, currentPage) {
-//   const elDivPaginaion = document.querySelector('.pagination')
-//   const elDivPaginationPage = generatePagination(totalPages, currentPage)
-//   elDivPaginaion.innerHTML = ''
-//   elDivPaginaion.appendChild(elDivPaginationPage)
-// }
 
 function renderPagination(totalPages, currentPage) {
   const elDivPaginaion = document.querySelector('.pagination')
