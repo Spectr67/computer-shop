@@ -41,40 +41,39 @@ const attributer = {
   },
 }
 
-attributer.addAttribute('Тип накопителя')
-attributer.addAttribute('Тип ОЗУ')
-attributer.addAttributeValue('SSD')
-attributer.addAttributeValue('DDR3')
-const result = attributer.getSettedAttributes
-console.log(result)
+// attributer.addAttribute('Тип накопителя')
+// attributer.addAttribute('Тип ОЗУ')
+// attributer.addAttributeValue('SSD')
+// attributer.addAttributeValue('DDR3')
+// const result = attributer.getSettedAttributes
+// console.log(result)
 
-const filteredProducts = attributer.attributering([
-  {
-    id: 1,
-    caption: 'Геймерский ПК Solaris-I',
-    attributes: {
-      'Тип ОЗУ': 'DDR4',
-      'Тип накопителя': 'SSD',
-      Процессор: 'AMD',
-    },
-  },
-  {
-    id: 2,
-    caption: 'Геймерский ПК Solaris-S',
-    attributes: {
-      'Тип ОЗУ': 'DDR4',
-      'Тип накопителя': 'HDD',
-      Процессор: 'Intel',
-    },
-  },
-  {
-    id: 3,
-    caption: 'Геймерский ПК Solaris-L',
-    attributes: {
-      'Тип ОЗУ': 'DDR3',
-      'Тип накопителя': 'SSD',
-      Процессор: 'AMD',
-    },
-  },
-])
-console.log(products)
+// const filteredProducts = attributer.attributering([
+//   {
+//     id: 1,
+//     caption: 'Геймерский ПК Solaris-I',
+//     attributes: {
+//       'Тип ОЗУ': 'DDR4',
+//       'Тип накопителя': 'SSD',
+//       Процессор: 'AMD',
+//     },
+//   },
+//   {
+//     id: 2,
+//     caption: 'Геймерский ПК Solaris-S',
+//     attributes: {
+//       'Тип ОЗУ': 'DDR4',
+//       'Тип накопителя': 'HDD',
+//       Процессор: 'Intel',
+//     },
+//   },
+//   {
+//     id: 3,
+//     caption: 'Геймерский ПК Solaris-L',
+//     attributes: {
+//       'Тип ОЗУ': 'DDR3',
+//       'Тип накопителя': 'SSD',
+//       Процессор: 'AMD',
+//     },
+//   },
+// ])

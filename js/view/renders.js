@@ -1,10 +1,3 @@
-const attributes = {
-  Бренд: ['Мерседес', 'Ауди', 'БМВ'],
-  Кузов: ['Седан', 'Купе', 'Хечбек'],
-  Цвет: ['Белый', 'Черный', 'Красный'],
-  Колёса: ['4шт', '6шт', '2шт', '3шт'],
-}
-
 function renderAttributes(attributes) {
   const elDivWrapFilter = document.querySelector('.wrap-filter')
   elDivWrapFilter.innerHTML = ''
