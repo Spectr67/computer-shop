@@ -17,9 +17,13 @@ const attrGetter = {
 
     this.attributes = {}
     for (const key in attributesMap) {
-      this.attributes[key] = Array.from(attributesMap[key])
+      this.attributes[key] = Array.from(attributesMap[key]).sort((a, b) => {
+        const numA = parseFloat(a) || 0
+        const numB = parseFloat(b) || 0
+        return numA - numB || a.localeCompare(b, undefined, { numeric: true })
+      })
     }
-
+    console.log(this.attributes)
     return this.attributes
   },
 }

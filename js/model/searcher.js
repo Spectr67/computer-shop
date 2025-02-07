@@ -47,5 +47,3 @@ const searcher = {
     )
   },
 }
-
-// module.exports = searcher

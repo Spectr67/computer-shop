@@ -1,9 +1,11 @@
 const controller = {
   async handleLoadPage() {
-    model.products = await api.getProducts()
+    // model.products = await api.getProducts()
+    model.products = prdocutsTest
     model.convertPricesToUAH()
-
     renderProducts(model.computedProducts())
+    const attributes = attrGetter.getAttributes(model.products)
+    renderAttributes(attributes)
     renderPagination(paginator.totalPages, paginator.currentPage)
 
     // const minPrice = pricer.getMinProductPrice(products)

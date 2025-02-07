@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://web-app.click/pc-shop/api/v0/'
+const API_ENDPOINT = 'https://pc-shop.web-app.click/api/v0/'
 const URL_PRODUCTS = API_ENDPOINT + 'products'
 
 const api = {
