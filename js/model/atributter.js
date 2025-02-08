@@ -4,6 +4,7 @@ const attributer = {
   settedAtributes: [],
 
   attributering(products) {
+    // TODO: проходишь по товарам и ищешь только те, которые есть в массиве
     return products.filter(
       product =>
         product.attributes &&
@@ -12,6 +13,7 @@ const attributer = {
   },
 
   addAttribute(attr) {
+    // attributeName
     this.attribute = attr
   },
 
@@ -20,11 +22,12 @@ const attributer = {
   },
 
   aaddAttributeToSetted() {
-    const attributeAndValue = [this.addAttribute, this.attributeValue]
+    const attributeAndValue = [this.attribute, this.attributeValue]
     this.settedAtributes.push(attributeAndValue)
   },
 
   clearAttribute(attribute) {
+    // attributeName
     this.settedAtributes = this.settedAtributes.filter(
       attr => attr[0] !== attribute
     )

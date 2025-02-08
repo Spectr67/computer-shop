@@ -10,7 +10,11 @@ const model = {
 
   computedProducts() {
     const searched = searcher.search(this.products)
-    const sorted = sorter.sort(searched)
+
+    attributed = searched
+    // attributed = attributer.attribute(searched)
+
+    const sorted = sorter.sort(attributed)
     const priced = pricer.price(sorted)
     const paginated = paginator.paginate(priced)
     return paginated
