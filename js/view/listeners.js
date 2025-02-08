@@ -8,6 +8,12 @@ elSelectPaginator.onchange = onChangeSelectProductsOnPage
 elInputPriceFrom.oninput = onInputSetPriceMin
 elInputPriceTo.oninput = onInputSetPriceMax
 
+function onChangetAttr(e) {
+  const attr = e.target.name
+  const value = e.target.nextElementSibling.textContent
+  controller.handleonChangetAttr(value, attr)
+}
+
 function onclickSetCurrentPage(e) {
   const currentPage = e.target.textContent
   controller.handleSetCurrentPage(currentPage)

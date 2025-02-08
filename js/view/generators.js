@@ -29,7 +29,7 @@ function generateAttrValue(attrName, attrValue) {
   elInput.name = attrName
   elInput.value = attrValue
   elInput.id = `${attrName}-${attrValue}`
-
+  elInput.onchange = onChangetAttr
   elLabel.htmlFor = elInput.id
   elLabel.textContent = attrValue
 

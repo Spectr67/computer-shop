@@ -2,6 +2,7 @@ const attributer = {
   attribute: '',
   attributeValue: '',
   settedAtributes: [],
+
   attributering(products) {
     return products.filter(
       product =>
@@ -10,26 +11,27 @@ const attributer = {
     )
   },
 
-  addAttribute() {
-    this.settedAtributes.push(this.attribute)
+  addAttribute(attr) {
+    this.attribute = attr
   },
 
-  addAttributeValue() {
-    this.attributeValue = this.attributeValue
+  addAttributeValue(value) {
+    this.attributeValue = value
   },
 
-  addAttributeToSetted() {
+  aaddAttributeToSetted() {
     const attributeAndValue = [this.addAttribute, this.attributeValue]
     this.settedAtributes.push(attributeAndValue)
   },
+
   clearAttribute(attribute) {
-    this.settedAttributes = this.settedAttributes.filter(
-      attr => attr !== attribute
+    this.settedAtributes = this.settedAtributes.filter(
+      attr => attr[0] !== attribute
     )
   },
 
   clearAttributeValue() {
-    this.addAttributeValue = ''
+    this.attributeValue = ''
   },
 
   clearAllAttributes() {

@@ -1,7 +1,7 @@
 const controller = {
   async handleLoadPage() {
-    // model.products = await api.getProducts()
-    model.products = prdocutsTest
+    model.products = await api.getProducts()
+    // model.products = prdocutsTest
     model.convertPricesToUAH()
     renderProducts(model.computedProducts())
     const attributes = attrGetter.getAttributes(model.products)
@@ -11,6 +11,14 @@ const controller = {
     // const minPrice = pricer.getMinProductPrice(products)
     // const maxPrice = pricer.getMaxProductPrice(products)
     // renderMinAndMaxPriceInputs(minPrice, maxPrice)
+  },
+
+  handleonChangetAttr(value, attr) {
+    attributer.addAttribute(attr)
+    attributer.addAttributeValue(value)
+    attributer.aaddAttributeToSetted()
+    renderProducts(model.computedProducts())
+    renderPagination(paginator.totalPages, paginator.currentPage)
   },
 
   handleSetSearchQuery(query) {
