@@ -10,8 +10,9 @@ const attrGetter = {
         if (!attributesMap[key]) {
           attributesMap[key] = new Set()
         }
+        let value = attributes[key].replaceAll(',', '').replaceAll(' ', '')
 
-        attributesMap[key].add(attributes[key])
+        attributesMap[key].add(value)
       }
     })
 

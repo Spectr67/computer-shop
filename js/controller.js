@@ -13,12 +13,10 @@ const controller = {
     // renderMinAndMaxPriceInputs(minPrice, maxPrice)
   },
 
-  handleonChangetAttr(value, attr) {
+  handleOnChangeSetAttibute(value, attr) {
     attributer.setAttributeName(attr)
     attributer.setAttributeValue(value)
     attributer.addAttributeToSetted()
-    renderProducts(model.computedProducts())
-    renderPagination(paginator.totalPages, paginator.currentPage)
   },
 
   handleSetSearchQuery(query) {
