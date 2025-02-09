@@ -22,19 +22,8 @@ const attributer = {
   },
 
   addAttributeToSetted() {
-    const attributeAndValue = [this.attribute, this.attributeValue]
+    const attributeAndValue = { [this.attribute]: this.attributeValue }
     this.settedAtributes.push(attributeAndValue)
-  },
-
-  clearAttribute(attribute) {
-    // attributeName
-    this.settedAtributes = this.settedAtributes.filter(
-      attr => attr[0] !== attribute
-    )
-  },
-
-  clearAttributeValue() {
-    this.attributeValue = ''
   },
 
   clearAllAttributes() {

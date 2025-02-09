@@ -8,12 +8,33 @@ elSelectPaginator.onchange = onChangeSelectProductsOnPage
 elInputPriceFrom.oninput = onInputSetPriceMin
 elInputPriceTo.oninput = onInputSetPriceMax
 
+const btnFilter = document.querySelector('.filter')
+btnFilter.onclick = getSelectedArrtibutes
+function getSelectedArrtibutes() {
+  const inputs = document.querySelectorAll('input[type="checkbox"]')
+  const selectedAttributes = []
+
+  inputs.forEach(input => {
+    if (input.checked) {
+      const name = input.name
+      const value = input.nextElementSibling.textContent
+
+      if (selectedAttributes[name]) {
+        selectedAttributes[name] += `, ${value}`
+      } else {
+        selectedAttributes.push({ name, value })
+      }
+    }
+  })
+
+  console.log(selectedAttributes)
+}
+
 function onChangetAttr(e) {
   const attr = e.target.name
   const value = e.target.nextElementSibling.textContent
-  controller.handleonChangetAttr(value, attr)
+  controller.handleOnChangeSetAttibute(value, attr)
 }
-
 function onclickSetCurrentPage(e) {
   const currentPage = e.target.textContent
   controller.handleSetCurrentPage(currentPage)
