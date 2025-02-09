@@ -12,16 +12,16 @@ const attributer = {
     )
   },
 
-  addAttribute(attr) {
+  setAttributeName(attr) {
     // attributeName
     this.attribute = attr
   },
 
-  addAttributeValue(value) {
+  setAttributeValue(value) {
     this.attributeValue = value
   },
 
-  aaddAttributeToSetted() {
+  addAttributeToSetted() {
     const attributeAndValue = [this.attribute, this.attributeValue]
     this.settedAtributes.push(attributeAndValue)
   },

@@ -14,9 +14,9 @@ const controller = {
   },
 
   handleonChangetAttr(value, attr) {
-    attributer.addAttribute(attr)
-    attributer.addAttributeValue(value)
-    attributer.aaddAttributeToSetted()
+    attributer.setAttributeName(attr)
+    attributer.setAttributeValue(value)
+    attributer.addAttributeToSetted()
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
