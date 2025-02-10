@@ -2,14 +2,21 @@ const elSelectSort = document.querySelector('.sort')
 const elSelectPaginator = document.querySelector('.products-on-page')
 const elInputPriceFrom = document.querySelector('#price_from')
 const elInputPriceTo = document.querySelector('#price_to')
+const ellearFilterBtn = document.querySelector('.btn.clear-filter')
+const btnFilter = document.querySelector('.filter')
 
+ellearFilterBtn.onclick = onclickClearFilter
 elSelectSort.onchange = onChangeSelectSortingType
 elSelectPaginator.onchange = onChangeSelectProductsOnPage
 elInputPriceFrom.oninput = onInputSetPriceMin
 elInputPriceTo.oninput = onInputSetPriceMax
-
-const btnFilter = document.querySelector('.filter')
 btnFilter.onclick = getSelectedAttributes
+
+function onclickClearFilter() {
+  controller.handleClearFilter()
+  const inputs = document.querySelectorAll('input[type="checkbox"]')
+  inputs.forEach(input => (input.checked = false))
+}
 
 function getSelectedAttributes() {
   const inputs = document.querySelectorAll('input[type="checkbox"]')
@@ -28,16 +35,14 @@ function getSelectedAttributes() {
     }
   })
 
-  console.log(selectedAttributes)
-  console.log('FFSFWSfselectedAttributes')
   controller.handleOnChangeSetAttibute(selectedAttributes)
 }
 
-function onChangetAttr(e) {
-  // const attr = e.target.name
-  // const value = e.target.nextElementSibling.textContent
-  // controller.handleOnChangeSetAttibute(value, attr)
-}
+// function onChangetAttr(e) {
+//   const attr = e.target.name
+//   const value = e.target.nextElementSibling.textContent
+//   controller.handleOnChangeSetAttibute(value, attr)
+// }
 function onclickSetCurrentPage(e) {
   const currentPage = e.target.textContent
   controller.handleSetCurrentPage(currentPage)

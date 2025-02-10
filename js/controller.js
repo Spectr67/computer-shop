@@ -13,6 +13,12 @@ const controller = {
     // renderMinAndMaxPriceInputs(minPrice, maxPrice)
   },
 
+  handleClearFilter() {
+    attributer.settedAtributes = []
+    renderProducts(model.computedProducts())
+    renderPagination(paginator.totalPages, paginator.currentPage)
+  },
+
   handleOnChangeSetAttibute(selectedAttributesf) {
     attributer.settedAtributes = selectedAttributesf
     renderProducts(model.computedProducts())

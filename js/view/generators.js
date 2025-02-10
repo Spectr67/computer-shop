@@ -29,7 +29,7 @@ function generateAttrValue(attrName, attrValue) {
   elInput.name = attrName
   elInput.value = attrValue
   elInput.id = `${attrName}-${attrValue}`
-  elInput.onchange = onChangetAttr
+  // elInput.onchange = onChangetAttr
   elLabel.htmlFor = elInput.id
   elLabel.textContent = attrValue
 
@@ -120,7 +120,7 @@ function generateProductCard(product) {
 
 function generatePaginationPageA(pageNumber, isActive) {
   const elPageLink = document.createElement('a')
-  elPageLink.onclick = onclickSetCurrentPage // !! camelCase !!
+  // elPageLink.onclick = onclickSetCurrentPage // !! camelCase !!
   elPageLink.href = '#'
   elPageLink.textContent = pageNumber
   elPageLink.classList.add('page')
