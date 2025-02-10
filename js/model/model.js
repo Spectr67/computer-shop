@@ -11,8 +11,7 @@ const model = {
   computedProducts() {
     const searched = searcher.search(this.products)
 
-    attributed = searched
-    // attributed = attributer.attribute(searched)
+    attributed = attributer.attributering(searched)
 
     const sorted = sorter.sort(attributed)
     const priced = pricer.price(sorted)

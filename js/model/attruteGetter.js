@@ -24,7 +24,6 @@ const attrGetter = {
         return numA - numB || a.localeCompare(b, undefined, { numeric: true })
       })
     }
-    console.log(this.attributes)
     return this.attributes
   },
 }
