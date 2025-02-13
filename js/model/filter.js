@@ -1,8 +1,7 @@
-const attrGetter = {
-  attributes: {},
-
-  getAttributes(products) {
+const filter = {
+  createFilterFromProducts(products) {
     const attributesMap = {}
+    const filter = {}
 
     products.forEach(product => {
       const { attributes } = product
@@ -16,15 +15,14 @@ const attrGetter = {
       }
     })
 
-    this.attributes = {}
     for (const key in attributesMap) {
-      this.attributes[key] = Array.from(attributesMap[key]).sort((a, b) => {
+      filter[key] = Array.from(attributesMap[key]).sort((a, b) => {
         const numA = parseFloat(a) || 0
         const numB = parseFloat(b) || 0
         return numA - numB || a.localeCompare(b, undefined, { numeric: true })
       })
     }
-    return this.attributes
+    return filter
   },
 }
 

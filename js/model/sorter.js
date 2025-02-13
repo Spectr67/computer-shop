@@ -1,5 +1,5 @@
 const sorter = {
-  sortingType: 'byCaptionASC',
+  sortingType: 'byPriceASC',
 
   sort(products) {
     return {

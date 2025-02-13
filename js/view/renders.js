@@ -1,11 +1,14 @@
-function renderAttributes(attributes) {
+function renderFilter(filter) {
   const elDivWrapFilter = document.querySelector('.wrap-filter')
   elDivWrapFilter.innerHTML = ''
-  for (const key in attributes) {
-    const elAttribute = generateAttribute(key, attributes[key])
+  for (const key in filter) {
+    const elAttribute = generateAttribute(key, filter[key])
     elDivWrapFilter.appendChild(elAttribute)
   }
 }
+
+// numbers = [42, 101, 333] <number>
+// security = { numbers: [42, 101, 333] <number>strings: ['a', 'b'] <string>}
 
 function renderProducts(products) {
   const elDivContainerProducts = document.querySelector('.container-products')
@@ -25,9 +28,17 @@ function renderPagination(totalPages, currentPage) {
     elDivPaginaion.appendChild(elPageLink)
   }
 }
+
 function renderMinAndMaxPriceInputs(minPrice, maxPrice) {
   const elInputPriceFrom = document.querySelector('#price_from')
   const elInputPriceTo = document.querySelector('#price_to')
   elInputPriceFrom.value = minPrice
   elInputPriceTo.value = maxPrice
+}
+
+function renderFilterCheckboxesClean() {
+  const listInputs = document.querySelectorAll('input[type="checkbox"]')
+  listInputs.forEach(elInput => {
+    elInput.checked = false
+  })
 }

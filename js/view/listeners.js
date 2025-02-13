@@ -14,27 +14,28 @@ elButtonFilter.onclick = onClickButtonFilter
 
 function onClickClearFilter() {
   controller.handleClearFilter()
-  const inputs = document.querySelectorAll('input[type="checkbox"]')
-  inputs.forEach(input => (input.checked = false))
+  renderFilterCheckboxesClean()
 }
 
 function onClickButtonFilter() {
-  const inputs = document.querySelectorAll('input[type="checkbox"]')
+  const listInputs = document.querySelectorAll('.wrap-filter [type="checkbox"]')
   const selectedAttributes = []
 
-  inputs.forEach(input => {
-    if (input.checked) {
-      const name = input.name
-      const value = input.nextElementSibling.textContent
+  listInputs.forEach(elInput => {
+    if (elInput.checked) {
+      const name = elInput.name
+      const value = elInput.value
+      console.log(name)
+      console.log(value)
       const existingAttr = selectedAttributes.find(attr => attr.name === name)
       if (existingAttr) {
-        existingAttr.value += ` ${value}`
+        existingAttr.value += `, ${value}`
       } else {
         selectedAttributes.push({ name, value })
       }
     }
   })
-
+  console.log(selectedAttributes)
   controller.handleOnChangeSetAttibute(selectedAttributes)
 }
 
@@ -43,8 +44,9 @@ function onClickButtonFilter() {
 //   const value = e.target.nextElementSibling.textContent
 //   controller.handleOnChangeSetAttibute(value, attr)
 // }
-function onclickSetCurrentPage(e) {
+function onClickSetCurrentPage(e) {
   const currentPage = e.target.textContent
+  console.log(currentPage)
   controller.handleSetCurrentPage(currentPage)
 }
 

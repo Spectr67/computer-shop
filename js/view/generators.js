@@ -1,15 +1,10 @@
 function generateAttribute(attrName, attrValues) {
-  // elDivWrapFilter.innerHTML = ''
-
   const elDivWrapProps = document.createElement('div')
   elDivWrapProps.classList.add('wrap-props')
-
   elDivWrapProps.appendChild(generateAttrName(attrName))
-
   for (const attrValue of attrValues) {
     elDivWrapProps.appendChild(generateAttrValue(attrName, attrValue))
   }
-
   return elDivWrapProps
 }
 
@@ -120,7 +115,7 @@ function generateProductCard(product) {
 
 function generatePaginationPageA(pageNumber, isActive) {
   const elPageLink = document.createElement('a')
-  // elPageLink.onclick = onclickSetCurrentPage // !! camelCase !!
+  elPageLink.onclick = onClickSetCurrentPage
   elPageLink.href = '#'
   elPageLink.textContent = pageNumber
   elPageLink.classList.add('page')

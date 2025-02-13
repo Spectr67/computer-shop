@@ -2,14 +2,16 @@ const controller = {
   async handleLoadPage() {
     model.products = await api.getProducts()
     // model.products = prdocutsTest
+    // model.normalizeProducts()  // убрать запятые и пробелы где надо
     model.convertPricesToUAH()
+
     renderProducts(model.computedProducts())
-    const attributes = attrGetter.getAttributes(model.products)
-    renderAttributes(attributes)
+    const attributes = filter.createFilterFromProducts(model.products)
+    renderFilter(attributes)
     renderPagination(paginator.totalPages, paginator.currentPage)
 
-    // const minPrice = pricer.getMinProductPrice(products)
-    // const maxPrice = pricer.getMaxProductPrice(products)
+    // const minPrice = pricer.getMinProductPrice(model.products)
+    // const maxPrice = pricer.getMaxProductPrice(model.products)
     // renderMinAndMaxPriceInputs(minPrice, maxPrice)
   },
 
@@ -17,10 +19,12 @@ const controller = {
     attributer.settedAtributes = []
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
+    renderFilterCheckboxesClean()
   },
 
   handleOnChangeSetAttibute(selectedAttributesf) {
     attributer.settedAtributes = selectedAttributesf
+    console.log(selectedAttributesf)
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
