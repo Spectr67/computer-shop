@@ -3,22 +3,22 @@ const elSelectPaginator = document.querySelector('.products-on-page')
 const elInputPriceFrom = document.querySelector('#price_from')
 const elInputPriceTo = document.querySelector('#price_to')
 const ellearFilterBtn = document.querySelector('.btn.clear-filter')
-const btnFilter = document.querySelector('.filter')
+const elButtonFilter = document.querySelector('.filter')
 
-ellearFilterBtn.onclick = onclickClearFilter
+ellearFilterBtn.onclick = onClickClearFilter
 elSelectSort.onchange = onChangeSelectSortingType
 elSelectPaginator.onchange = onChangeSelectProductsOnPage
 elInputPriceFrom.oninput = onInputSetPriceMin
 elInputPriceTo.oninput = onInputSetPriceMax
-btnFilter.onclick = getSelectedAttributes
+elButtonFilter.onclick = onClickButtonFilter
 
-function onclickClearFilter() {
+function onClickClearFilter() {
   controller.handleClearFilter()
   const inputs = document.querySelectorAll('input[type="checkbox"]')
   inputs.forEach(input => (input.checked = false))
 }
 
-function getSelectedAttributes() {
+function onClickButtonFilter() {
   const inputs = document.querySelectorAll('input[type="checkbox"]')
   const selectedAttributes = []
 
@@ -28,7 +28,7 @@ function getSelectedAttributes() {
       const value = input.nextElementSibling.textContent
       const existingAttr = selectedAttributes.find(attr => attr.name === name)
       if (existingAttr) {
-        existingAttr.value += `, ${value}`
+        existingAttr.value += ` ${value}`
       } else {
         selectedAttributes.push({ name, value })
       }
