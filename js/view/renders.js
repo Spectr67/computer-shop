@@ -7,8 +7,14 @@ function renderFilter(filter) {
   }
 }
 
-// numbers = [42, 101, 333] <number>
-// security = { numbers: [42, 101, 333] <number>strings: ['a', 'b'] <string>}
+function renderMinMaxPrice(minPrice, maxPrice) {
+  const ellabelPriceFrom = document.querySelector('.wrap-range > label > span')
+  const ellabelPriceTo = document.querySelector(
+    '.wrap-range:last-of-type > label > span'
+  )
+  ellabelPriceFrom.textContent = minPrice
+  ellabelPriceTo.textContent = maxPrice
+}
 
 function renderProducts(products) {
   const elDivContainerProducts = document.querySelector('.container-products')

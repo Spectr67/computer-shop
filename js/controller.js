@@ -10,9 +10,9 @@ const controller = {
     renderFilter(attributes)
     renderPagination(paginator.totalPages, paginator.currentPage)
 
-    // const minPrice = pricer.getMinProductPrice(model.products)
-    // const maxPrice = pricer.getMaxProductPrice(model.products)
-    // renderMinAndMaxPriceInputs(minPrice, maxPrice)
+    const minPrice = pricer.getMinProductPrice(model.products)
+    const maxPrice = pricer.getMaxProductPrice(model.products)
+    renderMinMaxPrice(minPrice, maxPrice)
   },
 
   handleClearFilter() {
@@ -56,12 +56,14 @@ const controller = {
 
   handleSetPriceMin(minPrice) {
     pricer.minPrice = +minPrice
+    renderMinMaxPrice(minPrice, pricer.maxPrice)
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
 
   handleSetPriceMax(maxPrice) {
     pricer.maxPrice = +maxPrice
+    renderMinMaxPrice(pricer.minPrice, maxPrice)
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
