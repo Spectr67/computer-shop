@@ -7,13 +7,26 @@ function renderFilter(filter) {
   }
 }
 
-function renderMinMaxPrice(minPrice, maxPrice) {
-  const ellabelPriceFrom = document.querySelector('.wrap-range > label > span')
-  const ellabelPriceTo = document.querySelector(
+function renderInputPriceFrom(minPrice, maxPrice, value) {
+  const elInputPriceFrom = document.querySelector('#price_from')
+  elInputPriceFrom.min = minPrice
+  elInputPriceFrom.max = maxPrice
+  elInputPriceFrom.value = value
+}
+function renderInputPriceTo(minPrice, maxPrice, value) {
+  const elInputPriceTo = document.querySelector('#price_to')
+  elInputPriceTo.min = minPrice
+  elInputPriceTo.max = maxPrice
+  elInputPriceTo.value = value
+}
+
+function renderSpanPriceFromTo(priceFrom, priceTo) {
+  const elSpanPriceFrom = document.querySelector('.wrap-range > label > span')
+  const elSpanPriceTo = document.querySelector(
     '.wrap-range:last-of-type > label > span'
   )
-  ellabelPriceFrom.textContent = minPrice
-  ellabelPriceTo.textContent = maxPrice
+  elSpanPriceFrom.textContent = priceFrom
+  elSpanPriceTo.textContent = priceTo
 }
 
 function renderProducts(products) {

@@ -1,11 +1,12 @@
 const pricer = {
   minPrice: 0,
-  maxPrice: Infinity,
+  maxPrice: 0,
+  from: 0,
+  to: 0,
 
   price(products) {
     return products.filter(
-      product =>
-        product.price >= this.minPrice && product.price <= this.maxPrice
+      product => product.price >= this.from && product.price <= this.to
     )
   },
 
@@ -14,6 +15,13 @@ const pricer = {
   },
 
   getMinProductPrice(products) {
+    return Math.min(...products.map(product => product.price))
+  },
+  getFromProductPrice(products) {
+    return Math.min(...products.map(product => product.price))
+  },
+
+  getToProductPrice(products) {
     return Math.min(...products.map(product => product.price))
   },
 }

@@ -1,18 +1,23 @@
 const controller = {
   async handleLoadPage() {
     model.products = await api.getProducts()
-    // model.products = prdocutsTest
-    // model.normalizeProducts()  // убрать запятые и пробелы где надо
+    model.products = model.normalizeProductAttributes()
     model.convertPricesToUAH()
 
-    renderProducts(model.computedProducts())
     const attributes = filter.createFilterFromProducts(model.products)
     renderFilter(attributes)
     renderPagination(paginator.totalPages, paginator.currentPage)
 
     const minPrice = pricer.getMinProductPrice(model.products)
     const maxPrice = pricer.getMaxProductPrice(model.products)
-    renderMinMaxPrice(minPrice, maxPrice)
+    pricer.minPrice = +minPrice
+    pricer.maxPrice = +maxPrice
+    pricer.from = +minPrice
+    pricer.to = +maxPrice
+    renderSpanPriceFromTo(pricer.minPrice, pricer.maxPrice)
+    renderInputPriceFrom(minPrice, maxPrice, pricer.from)
+    renderInputPriceTo(minPrice, maxPrice, pricer.to)
+    renderProducts(model.computedProducts())
   },
 
   handleClearFilter() {
@@ -54,16 +59,19 @@ const controller = {
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
 
-  handleSetPriceMin(minPrice) {
-    pricer.minPrice = +minPrice
-    renderMinMaxPrice(minPrice, pricer.maxPrice)
+  handleSetPriceFrom(priceFrom) {
+    pricer.from = +priceFrom
+    console.log(pricer.to)
+    renderSpanPriceFromTo(pricer.from, pricer.to)
+    renderInputPriceFrom(pricer.minPrice, pricer.maxPrice, pricer.from)
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
 
-  handleSetPriceMax(maxPrice) {
-    pricer.maxPrice = +maxPrice
-    renderMinMaxPrice(pricer.minPrice, maxPrice)
+  handleSetPriceTo(priceTo) {
+    pricer.to = +priceTo
+    renderSpanPriceFromTo(pricer.from, pricer.to)
+    renderInputPriceTo(pricer.minPrice, pricer.maxPrice, pricer.to)
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },

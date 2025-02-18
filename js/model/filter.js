@@ -9,7 +9,7 @@ const filter = {
         if (!attributesMap[key]) {
           attributesMap[key] = new Set()
         }
-        let value = attributes[key].replaceAll(',', '').replaceAll(' ', '')
+        let value = attributes[key]
 
         attributesMap[key].add(value)
       }

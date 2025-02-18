@@ -8,8 +8,8 @@ const elButtonFilter = document.querySelector('.filter')
 ellearFilterBtn.onclick = onClickClearFilter
 elSelectSort.onchange = onChangeSelectSortingType
 elSelectPaginator.onchange = onChangeSelectProductsOnPage
-elInputPriceFrom.oninput = onInputSetPriceMin
-elInputPriceTo.oninput = onInputSetPriceMax
+elInputPriceFrom.oninput = onInputSetPriceFrom
+elInputPriceTo.oninput = onInputSetPriceTo
 elButtonFilter.onclick = onClickButtonFilter
 
 function onClickClearFilter() {
@@ -46,18 +46,17 @@ function onClickButtonFilter() {
 // }
 function onClickSetCurrentPage(e) {
   const currentPage = e.target.textContent
-  console.log(currentPage)
   controller.handleSetCurrentPage(currentPage)
 }
 
-function onInputSetPriceMin(e) {
-  const minPrice = e.target.value
-  controller.handleSetPriceMin(minPrice)
+function onInputSetPriceFrom(e) {
+  const priceFrom = e.target.value
+  controller.handleSetPriceFrom(priceFrom)
 }
 
-function onInputSetPriceMax(e) {
-  const maxPrice = e.target.value
-  controller.handleSetPriceMax(maxPrice)
+function onInputSetPriceTo(e) {
+  const priceTo = e.target.value
+  controller.handleSetPriceTo(priceTo)
 }
 
 function onChangeSelectProductsOnPage(e) {
