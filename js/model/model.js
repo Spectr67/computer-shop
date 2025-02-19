@@ -21,7 +21,8 @@ const model = {
 
   computedProducts() {
     const searched = searcher.search(this.products)
-
+    pricer.updatePriceRange(searched)
+    // attributer.attributering(searched)
     const attributed = attributer.attributering(searched)
     const priced = pricer.price(attributed)
     const sorted = sorter.sort(priced)

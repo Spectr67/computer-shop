@@ -3,10 +3,8 @@ const controller = {
     model.products = await api.getProducts()
     model.products = model.normalizeProductAttributes()
     model.convertPricesToUAH()
-
     const attributes = filter.createFilterFromProducts(model.products)
     renderFilter(attributes)
-
     const minPrice = pricer.getMinProductPrice(model.products)
     const maxPrice = pricer.getMaxProductPrice(model.products)
     pricer.minPrice = +minPrice
@@ -20,24 +18,31 @@ const controller = {
     renderPagination(paginator.totalPages, paginator.currentPage)
   },
 
-  handleClearFilter() {
-    attributer.settedAtributes = []
+  renderUtilityFunction() {
+    paginator.currentPage = +0
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
+  },
+
+  handleClearFilter() {
+    attributer.settedAtributes = []
+    this.renderUtilityFunction()
     renderFilterCheckboxesClean()
   },
 
   handleOnChangeSetAttibute(selectedAttributesf) {
     attributer.settedAtributes = selectedAttributesf
-    console.log(selectedAttributesf)
-    renderProducts(model.computedProducts())
-    renderPagination(paginator.totalPages, paginator.currentPage)
+    this.renderUtilityFunction()
   },
 
   handleSetSearchQuery(query) {
     searcher.query = query
-    renderProducts(model.computedProducts())
-    renderPagination(paginator.totalPages, paginator.currentPage)
+    const attributes = filter.createFilterFromProducts(model.computedProducts())
+    renderFilter(attributes)
+    renderSpanPriceFromTo(pricer.minPrice, pricer.maxPrice)
+    renderInputPriceFrom(pricer.minPrice, pricer.maxPrice, pricer.from)
+    renderInputPriceTo(pricer.minPrice, pricer.maxPrice, pricer.to)
+    this.renderUtilityFunction()
   },
 
   handleSetProductSorting(sortingType) {
@@ -48,9 +53,7 @@ const controller = {
 
   handleSetProductsOnPage(productsPerPage) {
     paginator.productsPerPage = +productsPerPage
-    paginator.currentPage = +0
-    renderProducts(model.computedProducts())
-    renderPagination(paginator.totalPages, paginator.currentPage)
+    this.renderUtilityFunction()
   },
 
   handleSetCurrentPage(page) {
@@ -61,18 +64,15 @@ const controller = {
 
   handleSetPriceFrom(priceFrom) {
     pricer.from = +priceFrom
-    console.log(pricer.to)
     renderSpanPriceFromTo(pricer.from, pricer.to)
     renderInputPriceFrom(pricer.minPrice, pricer.maxPrice, pricer.from)
-    renderProducts(model.computedProducts())
-    renderPagination(paginator.totalPages, paginator.currentPage)
+    this.renderUtilityFunction()
   },
 
   handleSetPriceTo(priceTo) {
     pricer.to = +priceTo
     renderSpanPriceFromTo(pricer.from, pricer.to)
     renderInputPriceTo(pricer.minPrice, pricer.maxPrice, pricer.to)
-    renderProducts(model.computedProducts())
-    renderPagination(paginator.totalPages, paginator.currentPage)
+    this.renderUtilityFunction()
   },
 }

@@ -18,10 +18,16 @@ const pricer = {
     return Math.min(...products.map(product => product.price))
   },
   getFromProductPrice(products) {
-    return Math.min(...products.map(product => product.price))
+    return this.getMinProductPrice(products)
   },
 
   getToProductPrice(products) {
-    return Math.min(...products.map(product => product.price))
+    return this.getMaxProductPrice(products)
+  },
+  updatePriceRange(products) {
+    pricer.minPrice = pricer.getMinProductPrice(products)
+    pricer.maxPrice = pricer.getMaxProductPrice(products)
+    pricer.from = pricer.minPrice
+    pricer.to = pricer.maxPrice
   },
 }
