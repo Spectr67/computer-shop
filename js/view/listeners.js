@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', onLoadPage)
+const elInputSearch = document.querySelector('input[type=search]')
 const elSelectSort = document.querySelector('.sort')
 const elSelectPaginator = document.querySelector('.products-on-page')
 const elInputPriceFrom = document.querySelector('#price_from')
@@ -5,6 +7,7 @@ const elInputPriceTo = document.querySelector('#price_to')
 const ellearFilterBtn = document.querySelector('.btn.clear-filter')
 const elButtonFilter = document.querySelector('.filter')
 
+elInputSearch.oninput = onInputSearchInput
 ellearFilterBtn.onclick = onClickClearFilter
 elSelectSort.onchange = onChangeSelectSortingType
 elSelectPaginator.onchange = onChangeSelectProductsOnPage
@@ -25,8 +28,6 @@ function onClickButtonFilter() {
     if (elInput.checked) {
       const name = elInput.name
       const value = elInput.value
-      console.log(name)
-      console.log(value)
       const existingAttr = selectedAttributes.find(attr => attr.name === name)
       if (existingAttr) {
         existingAttr.value += `, ${value}`
@@ -39,11 +40,6 @@ function onClickButtonFilter() {
   controller.handleOnChangeSetAttibute(selectedAttributes)
 }
 
-// function onChangetAttr(e) {
-//   const attr = e.target.name
-//   const value = e.target.nextElementSibling.textContent
-//   controller.handleOnChangeSetAttibute(value, attr)
-// }
 function onClickSetCurrentPage(e) {
   const currentPage = e.target.textContent
   controller.handleSetCurrentPage(currentPage)
@@ -75,15 +71,5 @@ function onInputSearchInput(e) {
 }
 
 function onLoadPage() {
-  console.log('onLoadPage')
   controller.handleLoadPage()
 }
-
-document.addEventListener('DOMContentLoaded', onLoadPage)
-
-const elInputSearch = document.querySelector('input[type=search]')
-
-elInputSearch.oninput = onInputSearchInput
-
-// onChangePage
-// onChangeProductsOnPage

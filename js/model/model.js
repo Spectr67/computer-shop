@@ -23,9 +23,7 @@ const model = {
     const searched = searcher.search(this.products)
 
     const attributed = attributer.attributering(searched)
-    console.log(attributed)
     const priced = pricer.price(attributed)
-    console.log(priced)
     const sorted = sorter.sort(priced)
     const paginated = paginator.paginate(sorted)
     return paginated

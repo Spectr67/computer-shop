@@ -6,7 +6,6 @@ const controller = {
 
     const attributes = filter.createFilterFromProducts(model.products)
     renderFilter(attributes)
-    renderPagination(paginator.totalPages, paginator.currentPage)
 
     const minPrice = pricer.getMinProductPrice(model.products)
     const maxPrice = pricer.getMaxProductPrice(model.products)
@@ -18,6 +17,7 @@ const controller = {
     renderInputPriceFrom(minPrice, maxPrice, pricer.from)
     renderInputPriceTo(minPrice, maxPrice, pricer.to)
     renderProducts(model.computedProducts())
+    renderPagination(paginator.totalPages, paginator.currentPage)
   },
 
   handleClearFilter() {
