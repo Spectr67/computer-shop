@@ -16,7 +16,6 @@ const searcher = {
 
   queryToArray(query) {
     return query.trim().split(' ')
-    // .filter(q => q !== '')
   },
 
   compareWords(a, b) {

@@ -6,8 +6,7 @@ const attributer = {
   attributering(products) {
     return products.filter(product =>
       this.settedAtributes.every(({ name, value }) => {
-        const valuesArray = value.split(', ').map(v => v.trim())
-        return valuesArray.includes(product.attributes?.[name])
+        return value.includes(product.attributes?.[name])
       })
     )
   },
