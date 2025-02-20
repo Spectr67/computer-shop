@@ -19,7 +19,7 @@ const controller = {
   },
 
   renderUtilityFunction() {
-    paginator.currentPage = +0
+    paginator.currentPage = 0
     renderProducts(model.computedProducts())
     renderPagination(paginator.totalPages, paginator.currentPage)
   },

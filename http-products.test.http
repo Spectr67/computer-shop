@@ -1,0 +1,2 @@
+GET https://pc-shop.web-app.click/api/v0/customers/3/carts
+Cookie: session=ff0099aa

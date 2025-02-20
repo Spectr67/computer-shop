@@ -7,6 +7,9 @@ const URL_COMPARE = API_ENDPOINT + 'compare'
 const api = {
   getType: URL_COMPARE,
 
+  async authWithCookie() {
+    await this.sendRequest()
+  },
   async sendRequest(url, method = 'GET', payload = null) {
     const options = { method }
 
