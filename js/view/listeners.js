@@ -22,22 +22,25 @@ function onClickClearFilter() {
 
 function onClickButtonFilter() {
   const listInputs = document.querySelectorAll('.wrap-filter [type="checkbox"]')
-  const selectedAttributes = []
+  const selectedAttributes = {}
 
   listInputs.forEach(elInput => {
     if (elInput.checked) {
       const name = elInput.name
-      const value = elInput.value
-      const existingAttr = selectedAttributes.find(attr => attr.name === name)
-      if (existingAttr) {
-        existingAttr.value += `, ${value}`
-      } else {
-        selectedAttributes.push({ name, value })
+      const value = elInput.value.trim()
+      if (!selectedAttributes[name]) {
+        selectedAttributes[name] = []
+      }
+      if (!selectedAttributes[name].includes(value)) {
+        selectedAttributes[name].push(value)
       }
     }
   })
-  console.log(selectedAttributes)
-  controller.handleOnChangeSetAttibute(selectedAttributes)
+  const sortedAttributes = Object.entries(selectedAttributes)
+    .sort(([nameA], [nameB]) => nameA.localeCompare(nameB))
+    .map(([name, values]) => ({ name, value: values }))
+
+  controller.handleOnChangeSetAttibute(sortedAttributes)
 }
 
 function onClickSetCurrentPage(e) {
