@@ -1,6 +1,6 @@
 const controller = {
   async handleLoadPage() {
-    model.products = await api.getSomething()
+    // model.products = await api.getSomething()
     model.products = normalized.normalizeProducts(model.products)
     model.convertPricesToUAH()
     const attributes = filter.createFilterFromProducts(model.products)

@@ -7,11 +7,8 @@ const URL_COMPARE = API_ENDPOINT + 'compare'
 const api = {
   getType: URL_COMPARE,
 
-  async authWithCookie() {
-    await this.sendRequest()
-  },
   async sendRequest(url, method = 'GET', payload = null) {
-    const options = { method }
+    const options = { method, credentials: 'include' }
 
     if (payload) {
       options.headers = { 'content-type': 'application/json' }
@@ -23,6 +20,7 @@ const api = {
 
     if (text) {
       const json = JSON.parse(text)
+      console.log(json)
       return json.payload
     }
   },
@@ -34,10 +32,17 @@ const api = {
   async postSomething(product) {
     return await this.sendRequest(this.getType, 'POST', product)
   },
+
   async deleteSomethingById(id) {
     await this.sendRequest(this.getType + '/' + id, 'DELETE')
   },
 }
 
-const productID = 3
-await api.deleteSomethingById(URL_COMPARE, productID)
+// const productID = 3
+// await api.deleteSomethingById(URL_COMPARE, productID)
+
+const url0 = 'https://pc-shop.web-app.click/api/v0/auth'
+
+const url1 = 'https://pc-shop.web-app.click/api/v0/customers/3/carts'
+
+api.sendRequest(url1)
