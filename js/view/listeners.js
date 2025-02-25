@@ -1,19 +1,4 @@
 document.addEventListener('DOMContentLoaded', onLoadPage)
-const elInputSearch = document.querySelector('input[type=search]')
-const elSelectSort = document.querySelector('.sort')
-const elSelectPaginator = document.querySelector('.products-on-page')
-const elInputPriceFrom = document.querySelector('#price_from')
-const elInputPriceTo = document.querySelector('#price_to')
-const ellearFilterBtn = document.querySelector('.btn.clear-filter')
-const elButtonFilter = document.querySelector('.filter')
-
-elInputSearch.oninput = onInputSearchInput
-ellearFilterBtn.onclick = onClickClearFilter
-elSelectSort.onchange = onChangeSelectSortingType
-elSelectPaginator.onchange = onChangeSelectProductsOnPage
-elInputPriceFrom.oninput = onInputSetPriceFrom
-elInputPriceTo.oninput = onInputSetPriceTo
-elButtonFilter.onclick = onClickButtonFilter
 
 function onClickClearFilter() {
   controller.handleClearFilter()
@@ -75,4 +60,18 @@ function onInputSearchInput(e) {
 
 function onLoadPage() {
   controller.handleLoadPage()
+  const elInputSearch = document.querySelector('input[type=search]')
+  const elSelectSort = document.querySelector('.sort')
+  const elSelectPaginator = document.querySelector('.products-on-page')
+  const elInputPriceFrom = document.querySelector('#price_from')
+  const elInputPriceTo = document.querySelector('#price_to')
+  const ellearFilterBtn = document.querySelector('.btn.clear-filter')
+  const elButtonFilter = document.querySelector('.filter')
+  elInputSearch.oninput = onInputSearchInput
+  ellearFilterBtn.onclick = onClickClearFilter
+  elSelectSort.onchange = onChangeSelectSortingType
+  elSelectPaginator.onchange = onChangeSelectProductsOnPage
+  elInputPriceFrom.oninput = onInputSetPriceFrom
+  elInputPriceTo.oninput = onInputSetPriceTo
+  elButtonFilter.onclick = onClickButtonFilter
 }

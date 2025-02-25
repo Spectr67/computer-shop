@@ -17,9 +17,6 @@ const pricer = {
   getMinProductPrice(products) {
     return Math.min(...products.map(product => product.price))
   },
-  getFromProductPrice(products) {
-    return this.getMinProductPrice(products)
-  },
 
   setFrom(from) {
     this.from = from
@@ -27,6 +24,7 @@ const pricer = {
       this.to = this.from
     }
   },
+
   setTo(to) {
     this.to = to
     if (this.to <= this.from) {
@@ -34,9 +32,6 @@ const pricer = {
     }
   },
 
-  getToProductPrice(products) {
-    return this.getMaxProductPrice(products)
-  },
   updatePriceRange(products) {
     pricer.minPrice = pricer.getMinProductPrice(products)
     pricer.maxPrice = pricer.getMaxProductPrice(products)
