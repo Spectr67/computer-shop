@@ -1,2 +1,14 @@
-GET https://pc-shop.web-app.click/api/v0/customers/3/carts
+GET https://pc-shop.web-app.click/api/v0/customers/3/carts/
 Cookie: session=ff0099aa
+###
+
+###
+
+
+POST https://pc-shop.web-app.click/api/v0/customers/3/carts
+Content-Type: application/json
+Cookie: session=ff0099aa
+
+{
+    "productId": 13
+}

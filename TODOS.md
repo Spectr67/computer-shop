@@ -12,7 +12,7 @@
 <!-- при поиске -->
 
 мин и макс не могут быть ??????
-сломал все обидно
+
 
 https://pc-shop.web-app.click/api/v0/customers/3/carts
 https://pc-shop.web-app.click/api/v0/auth

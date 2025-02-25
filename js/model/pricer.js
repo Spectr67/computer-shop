@@ -21,6 +21,19 @@ const pricer = {
     return this.getMinProductPrice(products)
   },
 
+  setFrom(from) {
+    this.from = from
+    if (this.from >= this.to) {
+      this.to = this.from
+    }
+  },
+  setTo(to) {
+    this.to = to
+    if (this.to <= this.from) {
+      this.from = this.to
+    }
+  },
+
   getToProductPrice(products) {
     return this.getMaxProductPrice(products)
   },

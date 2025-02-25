@@ -5,7 +5,7 @@ const URL_CARTS = API_ENDPOINT + 'carts'
 const URL_COMPARE = API_ENDPOINT + 'compare'
 
 const api = {
-  getType: URL_COMPARE,
+  getType: URL_PRODUCTS,
 
   async sendRequest(url, method = 'GET', payload = null) {
     const options = { method, credentials: 'include' }

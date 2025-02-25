@@ -62,6 +62,10 @@ function generateProductCard(product) {
   const elButtonCompare = document.createElement('button')
   const elDivNew = document.createElement('div')
 
+  const elInputId = document.createElement('input')
+  elInputId.type = 'hidden'
+  elInputId.value = product.id
+
   elLink.href = `?type=product_card&id=${id}`
   elLink.classList.add('a-link')
   elImg.src = url + photo
@@ -88,7 +92,10 @@ function generateProductCard(product) {
   elDivButtonCompare.classList.add('compare')
   elButtonCart.classList.add('"')
   elButtonFavorite.classList.add('"')
+  elButtonFavorite.onclick = onClickFavorite
   elButtonCompare.classList.add('"')
+  elButtonCart.onclick = onClickCart
+  elButtonCompare.onclick = onClickCompare
 
   elDivProduct.appendChild(elDivWrapA)
   elDivWrapA.appendChild(elLink)
@@ -108,6 +115,7 @@ function generateProductCard(product) {
   elDivRow.appendChild(elDivButtonCompare)
   elDivButtonCompare.appendChild(elButtonCompare)
   elDivProduct.appendChild(elDivNew)
+  elDivProduct.appendChild(elInputId)
 
   return elDivProduct
 }

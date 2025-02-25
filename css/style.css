@@ -497,3 +497,7 @@ a {
 .filter:hover {
   background: linear-gradient(45deg, hsl(236, 71%, 48%), hsl(180, 85%, 65%));
 }
+h1 {
+  text-align: center;
+  padding-top: 25px;
+}
